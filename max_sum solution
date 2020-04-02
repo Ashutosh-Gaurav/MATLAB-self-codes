@@ -1,0 +1,30 @@
+function [summa,index]=max_sum(v,n)
+    Som=[];
+    y=length(v);
+    x=0;
+    flag=0;
+    for ii=1:(y-n+1)
+           for jj=ii:(ii+n-1)
+           x=x+v(jj);
+           flag=flag+1;
+           if flag==n
+               break;
+           end
+         
+           end
+             Som=[Som x];
+             x=0;
+    end
+    summa=max(Som);
+    c=1;
+     if n>length(v)
+        summa=0;
+        index=-1;
+        return
+    end
+    while Som(c)~=summa
+        c=c+1;
+    end
+    index=c;
+   
+end
