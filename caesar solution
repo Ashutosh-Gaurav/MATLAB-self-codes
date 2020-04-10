@@ -1,0 +1,15 @@
+function coded=caesar(vector,shift)
+    temp=vector+shift;
+    for ii=1:length(temp)
+        while temp(ii)>126
+            temp(ii)=(temp(ii)-126)+31;
+        end
+    end
+    for ii=1:length(temp)
+        while temp(ii)<32
+            temp(ii)=127-(32-temp(ii));
+        end
+    end
+    
+    coded=char(temp);
+    end
