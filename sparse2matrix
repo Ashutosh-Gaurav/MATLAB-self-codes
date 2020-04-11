@@ -1,0 +1,10 @@
+function matrix=sparse2matrix(Cellvector)
+    temp=ones(Cellvector{1}(1),Cellvector{1}(2));
+    temp=temp*Cellvector{2};
+    n=length(Cellvector)-2;
+    for ii=1:n
+        temp(Cellvector{2+ii}(1),Cellvector{2+ii}(2))=Cellvector...
+            {2+ii}(3);
+    end
+    matrix=temp;
+end
