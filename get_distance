@@ -1,0 +1,17 @@
+function distance = get_distance(a,b)
+found = true;
+[~,~,raw] = xlsread('Distances.xlsx');
+Cities_1=(raw(:,1))';
+Cities_2=raw(1,:);
+for i=2:size(raw,1)
+    for j=2:size(raw,2)
+        if strcmp(Cities_1{i},a) & strcmp(Cities_2{j},b)
+            distance=raw{i,j};
+            return
+        end
+    end
+end
+if found
+    distance = -1;
+end
+end
