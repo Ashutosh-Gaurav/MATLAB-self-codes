@@ -1,0 +1,13 @@
+function charnum=char_counter(fname,character)
+    fid=fopen(fname,'rt');
+    charnum=0;
+    if fid<0 || ~ischar(character)
+       charnum=-1;
+       return 
+    end
+    line=fgets(fid);
+    while ischar(line)
+     charnum=charnum+count(line,character);
+     line=fgets(fid);
+    end
+end
