@@ -10,4 +10,5 @@ function charnum=char_counter(fname,character)
      charnum=charnum+count(line,character);
      line=fgets(fid);
     end
+    fclose(fid);
 end
