@@ -1,0 +1,17 @@
+function indices=saddle(M)
+    indices=[];
+    a=size(M);
+    test=ones(1,a(2));
+    for ii=1:a(1)
+        for jj=1:a(2)
+            test(jj)=M(ii,jj);
+        end
+        maxi=max(test);
+        position=find(test==maxi);
+        for k=position(1:end)
+            if maxi==min(M(:,k))
+               indices=[indices;ii,k];
+            end
+        end
+    end
+end
