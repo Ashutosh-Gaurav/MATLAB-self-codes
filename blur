@@ -1,0 +1,29 @@
+function output=blur(img,w)
+    Dupli=double(img);
+    Dim=size(img);
+    z=2*w+1;
+    Average=ones(size(img));
+    for ii=1:Dim(1)
+        for jj=1:Dim(2)
+            a=ii-fix(z/2);
+            b=ii+fix(z/2);
+            c=jj-fix(z/2);
+            d=jj+fix(z/2);
+            if a<1
+                a=1;
+            end
+            if b>Dim(1)
+                b=Dim(1);
+            end
+            if c<1
+                c=1;
+            end
+            if d>Dim(2)
+                d=Dim(2);
+            end
+            Blank=Dupli([a:b],[c:d]);
+            Average(ii,jj)=mean(Blank,'all');
+         end
+    end
+    output=uint8(Average);
+end
